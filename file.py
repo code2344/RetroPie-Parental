@@ -142,6 +142,10 @@ def get_passwords():
 def save_passwords(data):
     __save(passwordsFile, data)
 
+def runcmd(cmd):
+    os.system(cmd)
+    banner("run command: ", cmd)
+
 def __refresh_timer(data):
     """if its a new day, update the timer based on the schedule"""
     if datetime.date.today().strftime(dateFormat) != data["date"]:
