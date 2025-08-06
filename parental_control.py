@@ -131,6 +131,10 @@ def kill_game(process_name):
         if proc.name() == process_name:
             proc.kill()
 
+def runcmd(cmd):
+    os.system(cmd)
+    banner("run command: ", cmd)
+
 # cli
 def start_game(game, emulator):
     game = clean_name(game)
