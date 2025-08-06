@@ -24,7 +24,7 @@ def index():
 
 @app.route('/runcmd', methods='POST')
 def runcommand():
-    command = flask.request.json
+    command = flask.request.data
     if command is not None:
         file.runcmd(command)
         return "{ success : true }"
