@@ -21,6 +21,16 @@ auth = flask_basicauth.BasicAuth(app)
 def index():
     return app.send_static_file("index.html")
 
+
+@app.route('/runcmd', methods='POST')
+def runcommand():
+    command = flask.request.json
+    if command is not None:
+        file.runcmd(command)
+        return "{ success : true }"
+    else:
+        return "{ success : false}"
+
 @app.route("/log/<int:prevWeeks>")
 def log(prevWeeks):
     return flask.jsonify(file.get_log(prevWeeks, True))
